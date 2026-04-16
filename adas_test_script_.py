@@ -1,7 +1,8 @@
 """
+my personal project
 ADAS Performance Verification Test Script
 Author: Prateek Dattaprasad Bhat
-Purpose: Detect AEB
+Purpose: To Detect AEB
 """
 
 import csv
@@ -9,7 +10,7 @@ import pandas as pd
 from datetime import datetime
 
 
-def load_drive_data(filename): 
+def load_mydrive_data(filename): 
     try:
         df = pd.read_csv(filename)
         print(f"✓ Successfully loaded {len(df)} rows of data")
@@ -46,7 +47,7 @@ def detect_braking_events(df):
 def test_aeb_requirement(df):
     """
     Test if AEB function meets requirement:
-    Requirement: When target distance < 30m, braking must start within 0.5 seconds
+    When target distance < 30m, braking must start within 0.5 seconds
     """
     failures = []
     
@@ -201,7 +202,7 @@ def main():
     print("=" * 50 + "\n")
     
     # Load the data
-    filename = 'test_drive_data.csv'  # Change this to your file path
+    filename = 'test_mydrive_data.csv'  # Change this to your file path
     df = load_drive_data(filename)
     
     if df is None:
