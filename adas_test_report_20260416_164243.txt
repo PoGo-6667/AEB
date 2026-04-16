@@ -1,0 +1,52 @@
+============================================================
+ADAS PERFORMANCE VERIFICATION TEST REPORT
+============================================================
+Date: 2026-04-16 16:42:43
+Test Engineer: [Your Name]
+Data Source: test_mydrive_data.csv
+Total Data Points: 19
+
+----------------------------------------
+EXECUTIVE SUMMARY
+----------------------------------------
+Total Braking Events Detected: 3
+Total AEB Requirement Failures: 4
+OVERALL RESULT: FAIL ✗
+One or more AEB requirements violated.
+
+----------------------------------------
+DETECTED HARD BRAKING EVENTS
+----------------------------------------
+1. Time: 4.5s | Speed: 48.0 km/h | Decel: 3.5 m/s² | Severity: MEDIUM
+2. Time: 5.0s | Speed: 42.0 km/h | Decel: 5.0 m/s² | Severity: MEDIUM
+3. Time: 5.5s | Speed: 35.0 km/h | Decel: 4.5 m/s² | Severity: MEDIUM
+
+----------------------------------------
+AEB REQUIREMENT FAILURES
+----------------------------------------
+Requirement: When target distance < 30m, deceleration must exceed 1.0 m/s²
+1. Time: 3.0s | Distance: 28.0m | Decel: 0.8 m/s²
+   Issue: Insufficient braking when target too close
+2. Time: 8.0s | Distance: 4.0m | Decel: 0.5 m/s²
+   Issue: Insufficient braking when target too close
+3. Time: 8.5s | Distance: 3.0m | Decel: 0.2 m/s²
+   Issue: Insufficient braking when target too close
+4. Time: 9.0s | Distance: 2.0m | Decel: 0.0 m/s²
+   Issue: Insufficient braking when target too close
+
+----------------------------------------
+DATA PLAYLIST (Events for Deep Analysis)
+----------------------------------------
+1. MEDIUM severity braking at 4.5s
+   → Extract from 4.0s to 5.0s
+   → Speed: 48.0 km/h, Decel: 3.5 m/s²
+2. MEDIUM severity braking at 5.0s
+   → Extract from 4.5s to 5.5s
+   → Speed: 42.0 km/h, Decel: 5.0 m/s²
+3. MEDIUM severity braking at 5.5s
+   → Extract from 5.0s to 6.0s
+   → Speed: 35.0 km/h, Decel: 4.5 m/s²
+
+============================================================
+END OF REPORT
+============================================================
