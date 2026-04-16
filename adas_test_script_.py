@@ -203,7 +203,7 @@ def main():
     
     # Load the data
     filename = 'test_mydrive_data.csv'  # Change this to your file path
-    df = load_drive_data(filename)
+    df = load_mydrive_data(filename)
     
     if df is None:
         print("\nCreating sample data file for you...")
