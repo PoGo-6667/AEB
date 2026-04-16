@@ -1,19 +1,15 @@
 """
 ADAS Performance Verification Test Script
 Author: Prateek Dattaprasad Bhat
-Purpose: Detect AEB (Automatic Emergency Braking) events and generate test report
+Purpose: Detect AEB
 """
 
 import csv
 import pandas as pd
 from datetime import datetime
 
-# ============================================
-# PART 1: LOAD AND ANALYZE THE DATA
-# ============================================
 
 def load_drive_data(filename): 
-    """Load the CSV file containing drive data"""
     try:
         df = pd.read_csv(filename)
         print(f"✓ Successfully loaded {len(df)} rows of data")
@@ -37,7 +33,6 @@ def detect_braking_events(df):
         speed = row['speed_kmh']
         timestamp = row['timestamp']
         
-        # Hard braking threshold (industry standard: > 3 m/s² is emergency braking)
         if decel > 3.0:
             events.append({
                 'timestamp': timestamp,
@@ -92,9 +87,9 @@ def create_playlist(df, events):
     
     return playlist
 
-# ============================================
-# PART 2: GENERATE TEST REPORT
-# ============================================
+
+# GENERATE TEST REPORT
+
 
 def generate_test_report(filename, df, events, failures, playlist):
     """Generate a complete test report in text format"""
@@ -173,9 +168,9 @@ def generate_test_report(filename, df, events, failures, playlist):
     
     return "\n".join(report_lines)
 
-# ============================================
-# PART 3: SAVE RESULTS
-# ============================================
+
+# SAVE RESULTS
+
 
 def save_results_to_csv(events, failures, output_filename):
     """Save detected events and failures to CSV for further analysis"""
@@ -198,9 +193,7 @@ def save_results_to_csv(events, failures, output_filename):
         playlist_df.to_csv('playlist.csv', index=False)
         print(f"✓ Saved playlist to 'playlist.csv'")
 
-# ============================================
-# MAIN EXECUTION
-# ============================================
+
 
 def main():
     print("\n" + "=" * 50)
