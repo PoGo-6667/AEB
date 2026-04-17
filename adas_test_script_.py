@@ -96,9 +96,8 @@ def generate_test_report(filename, df, events, failures, playlist):
     """Generate a complete test report in text format"""
     
     report_lines = []
-    report_lines.append("=" * 60)
+    
     report_lines.append("ADAS PERFORMANCE VERIFICATION TEST REPORT")
-    report_lines.append("=" * 60)
     report_lines.append(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     report_lines.append(f"Test Engineer: [Your Name]")
     report_lines.append(f"Data Source: {filename}")
@@ -106,9 +105,8 @@ def generate_test_report(filename, df, events, failures, playlist):
     report_lines.append("")
     
     # Summary
-    report_lines.append("-" * 40)
+   
     report_lines.append("EXECUTIVE SUMMARY")
-    report_lines.append("-" * 40)
     report_lines.append(f"Total Braking Events Detected: {len(events)}")
     report_lines.append(f"Total AEB Requirement Failures: {len(failures)}")
     
@@ -122,9 +120,9 @@ def generate_test_report(filename, df, events, failures, playlist):
     report_lines.append("")
     
     # Detailed events
-    report_lines.append("-" * 40)
+    
     report_lines.append("DETECTED HARD BRAKING EVENTS")
-    report_lines.append("-" * 40)
+    
     
     if len(events) == 0:
         report_lines.append("No hard braking events detected (deceleration > 3.0 m/s²)")
@@ -135,9 +133,9 @@ def generate_test_report(filename, df, events, failures, playlist):
     report_lines.append("")
     
     # Failures
-    report_lines.append("-" * 40)
+   
     report_lines.append("AEB REQUIREMENT FAILURES")
-    report_lines.append("-" * 40)
+   
     report_lines.append("Requirement: When target distance < 30m, deceleration must exceed 1.0 m/s²")
     
     if len(failures) == 0:
@@ -150,9 +148,9 @@ def generate_test_report(filename, df, events, failures, playlist):
     report_lines.append("")
     
     # Playlist
-    report_lines.append("-" * 40)
+    
     report_lines.append("DATA PLAYLIST (Events for Deep Analysis)")
-    report_lines.append("-" * 40)
+    )
     
     if len(playlist) == 0:
         report_lines.append("No events to add to playlist")
@@ -163,9 +161,9 @@ def generate_test_report(filename, df, events, failures, playlist):
             report_lines.append(f"   → Speed: {clip['speed']} km/h, Decel: {clip['deceleration']} m/s²")
     
     report_lines.append("")
-    report_lines.append("=" * 60)
+    
     report_lines.append("END OF REPORT")
-    report_lines.append("=" * 60)
+    
     
     return "\n".join(report_lines)
 
