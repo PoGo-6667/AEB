@@ -150,7 +150,7 @@ def generate_test_report(filename, df, events, failures, playlist):
     # Playlist
     
     report_lines.append("DATA PLAYLIST (Events for Deep Analysis)")
-    )
+    
     
     if len(playlist) == 0:
         report_lines.append("No events to add to playlist")
